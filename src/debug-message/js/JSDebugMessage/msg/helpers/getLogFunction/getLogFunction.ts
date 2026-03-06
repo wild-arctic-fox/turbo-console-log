@@ -17,6 +17,8 @@ export function getLogFunction(logFunction: string): string {
       return 'console.table';
     case 'error':
       return 'console.error';
+    case 'dir':
+      return 'console.dir';
     default:
       return logFunction;
   }

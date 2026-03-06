@@ -26,5 +26,7 @@ export function buildLogMessage(
   const semicolon = addSemicolon ? ';' : '';
   const message = parts.join('');
 
-  return `${logFn}(${quoteToUse}${message}${quoteToUse}, ${selectedVar})${semicolon}`;
+  return logFn !== 'console.dir'
+    ? `${logFn}(${quoteToUse}${message}${quoteToUse}, ${selectedVar})${semicolon}`
+    : `console.dir(${selectedVar}, { depth: null, colors: true, sorted: true })${semicolon}`;
 }
